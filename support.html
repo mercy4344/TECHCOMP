@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenacious Computers | Premium Business Laptops</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a5c8d;
+            --primary-light: #3a7cb9;
+            --secondary: #ff6b00;
+            --secondary-light: #ff8c33;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --white: #ffffff;
+            --black: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary-light);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-large {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Sections */
+        .page-section {
+            display: none;
+            padding: 100px 0;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        /* Home Section */
+        #home {
+            display: block;
+            padding: 0;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* Page header styles */
+        .page-header {
+            padding: 100px 0 60px;
+            text-align: center;
+            background-color: var(--light);
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+        }
+
+        /* Active link styling */
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-links a.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .btn.btn-primary.active {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#home"><span>Tenacious</span>Computers</a>
+            </div>
+            <nav class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#products">Products</a>
+                <a href="#business">Business Solutions</a>
+                <a href="#support">Support</a>
+                <a href="#about">About Us</a>
+                <a href="#contact" class="btn btn-primary">Contact Sales</a>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="page-section active">
+        <div class="hero">
+            <video autoplay muted loop class="hero-video">
+                <source src="videos/clip.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay"></div>
+            <div class="container">
+                <h1>Power Your Business With Tenacious</h1>
+                <p>Premium laptops engineered for performance, reliability, and seamless productivity.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary">Explore Business Laptops</a>
+                    <a href="#business" class="btn btn-outline">Compare Models</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="page-section">
+        <div class="page-header">
+            <div class="container">
+                <h1>Our Product Lineup</h1>
+                <p>Discover the perfect laptop for your business needs</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="category-tabs">
+                <button class="tab-btn active" data-category="all">All Products</button>
+                <button class="tab-btn" data-category="business">Business Laptops</button>
+                <button class="tab-btn" data-category="workstation">Workstations</button>
+                <button class="tab-btn" data-category="ultraportable">Ultraportables</button>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product cards will be loaded here -->
+                <div class="product-card">
+                    <img src="images/img1.jpg" alt="Tenacious Pro">
+                    <h3>Tenacious Pro</h3>
+                    <p>High-performance business laptop</p>
+                    <div class="price">$1,299</div>
+                    <a href="#contact" class="btn btn-primary">Get Quote</a>
+                </div>
+                <div class="product-card">
+                    <img src="images/img2.jpg" alt="Tenacious Elite">
+                    <h3>Tenacious Elite</h3>
+                    <p>Premium executive laptop</p>
+                    <div class="price">$1,599</div>
+                    <a href="#contact" class="btn btn-primary">Get Quote</a>
+                </div>
+                <div class="product-card">
+                    <img src="images/img3.jpg" alt="Tenacious Mobile">
+                    <h3>Tenacious Mobile</h3>
+                    <p>Ultra-portable business companion</p>
+                    <div class="price">$999</div>
+                    <a href="#contact" class="btn btn-primary">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Solutions Section -->
+    <section id="business" class="page-section">
+        <div class="page-header">
+            <div class="container">
+                <h1>Business Solutions</h1>
+                <p>Customized laptop solutions for enterprises</p>
+            </div>
+        </div>
+        <div class="container">
+            <!-- Business solutions content -->
+            <div class="solution-card">
+                <h2>Enterprise Packages</h2>
+                <p>We offer customized solutions for businesses of all sizes with bulk pricing, extended warranties, and dedicated support.</p>
+                <a href="#contact" class="btn btn-primary">Contact Our Business Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="page-section">
+        <div class="page-header">
+            <div class="container">
+                <h1>Support Center</h1>
+                <p>Get help with your Tenacious products</p>
+            </div>
+        </div>
+        <div class="container">
+            <!-- Support content -->
+            <div class="support-option">
+                <h3>Technical Support</h3>
+                <p>24/7 assistance for your Tenacious devices</p>
+                <a href="#contact" class="btn btn-primary">Contact Support</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="page-section">
+        <div class="page-header">
+            <div class="container">
+                <h1>About Tenacious Computers</h1>
+                <p>Driving innovation in business computing</p>
+            </div>
+        </div>
+        <div class="container">
+            <!-- About content -->
+            <div class="about-content">
+                <h2>Our Story</h2>
+                <p>Founded in 2010, Tenacious Computers has been providing reliable business computing solutions to enterprises worldwide.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="page-section">
+        <div class="page-header">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Get in touch with our sales team</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Navigation and page switching
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    showPage(targetId);
+                    updateActiveLink(this);
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Show the correct page based on URL hash
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the requested page
+            const targetSection = document.querySelector(pageId);
+            if(targetSection) {
+                targetSection.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // Update active link in navigation
+        function updateActiveLink(clickedLink) {
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            clickedLink.classList.add('active');
+        }
+
+        // Handle initial page load
+        function handleInitialLoad() {
+            const hash = window.location.hash;
+            if(hash) {
+                const targetLink = document.querySelector(`.nav-links a[href="${hash}"]`);
+                if(targetLink) {
+                    showPage(hash);
+                    updateActiveLink(targetLink);
+                }
+            } else {
+                // Default to home page
+                showPage('#home');
+                updateActiveLink(document.querySelector('.nav-links a[href="#home"]'));
+            }
+        }
+
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you soon.');
+            this.reset();
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', handleInitialLoad);
+
+        // Handle browser back/forward buttons
+        window.addEventListener('hashchange', handleInitialLoad);
+    </script>
+</body>
+</html>

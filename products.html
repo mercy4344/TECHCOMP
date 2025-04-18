@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | Tenacious Computers</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><span>Tenacious</span>Computers</a>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="products.html" class="active">Products</a>
+                <a href="business.html">Business Solutions</a>
+                <a href="support.html">Support</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html" class="btn btn-primary">Contact Sales</a>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Product Lineup</h1>
+            <p>Discover the perfect laptop for your business needs</p>
+        </div>
+    </section>
+
+    <section class="product-categories">
+        <div class="container">
+            <div class="category-tabs">
+                <button class="tab-btn active" data-category="all">All Products</button>
+                <button class="tab-btn" data-category="business">Business Laptops</button>
+                <button class="tab-btn" data-category="workstation">Workstations</button>
+                <button class="tab-btn" data-category="ultraportable">Ultraportables</button>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product cards will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>
